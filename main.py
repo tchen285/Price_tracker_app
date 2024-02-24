@@ -1,17 +1,11 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def select_url():
-    return """
-        <html>
-            <body>
-                <button onclick="window.location.href='https://www.bestbuy.com'">Best Buy</button>
-            </body>
-        </html>
-        """
+    return render_template("main_page.html")
 
 
 if __name__ == "__main__":
