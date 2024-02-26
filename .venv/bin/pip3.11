@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/Users/taochen/Desktop/Python Code/Price_tracker/Price_tracker_app/.venv/bin/python3.11" "$0" "$@"
-' '''
+#!/Users/taochen/Desktop/PythonCode/Price_tracker/Price_tracker_app/.venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
