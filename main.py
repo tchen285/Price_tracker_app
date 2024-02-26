@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.secret_key = '123890'  # Set a secret key for session
 
 bestbuy_scraper = BestBuyScraper()
-bestbuy_price = bestbuy_scraper.get_bestbuy_price("https://www.bestbuy.com/site/microsoft-xbox-series-s-1tb-all-digital-console-disc-free-gaming-black/6547877.p?skuId=6547877")
+bestbuy_price = bestbuy_scraper.get_bestbuy_price("https://www.bestbuy.com/site/sony-playstation-5-slim-console-white/6566039.p?skuId=6566039")
 
 @app.route("/")
 def select_url():
