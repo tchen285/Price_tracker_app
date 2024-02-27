@@ -22,9 +22,7 @@ def left_sidebar():
         url = request.form.get('urlInput')
         target_price = request.form.get('targetPrice')
         email = request.form.get('email')
-        print(url)
-        print(target_price)
-        print(email)
+
         # Process the form data (e.g., write to CSV file)
         with open('data.csv', 'a', newline='') as csvfile:
             csv_writer = csv.writer(csvfile)
