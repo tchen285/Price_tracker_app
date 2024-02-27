@@ -28,6 +28,8 @@ def left_sidebar():
             csv_writer = csv.writer(csvfile)
             csv_writer.writerow([url, target_price, email])
 
+        return redirect(url_for('no_sidebar'))
+
     # Render the template with the form
     return render_template('left-sidebar.html')
 
@@ -37,7 +39,7 @@ def right_sidebar():
     return render_template("right-sidebar.html")
 
 
-@app.route("/no-sidebar.html")
+@app.route('/no-sidebar.html', methods=['GET', 'POST'])
 def no_sidebar():
     return render_template("no-sidebar.html")
 

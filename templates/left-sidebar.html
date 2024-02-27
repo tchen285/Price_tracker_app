@@ -58,7 +58,7 @@
 
                         <!-- Sidebar -->
                         <section>
-                            <h3>Subheading</h3>
+                            <h3>Motivation</h3>
                             <p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
                                 Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
                                 Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
@@ -80,7 +80,7 @@
                             <h2>Track Best Buy Price</h2>
                             <!-- Add input field for pasting the URL -->
                             <!-- index.html -->
-                            <form method="post" action="/left-sidebar.html">
+                            <form method="post" action="{{ url_for('left_sidebar') }}">
                                 <div class="form-group" style="margin-bottom: 50px; margin-top: 50px">
                                     <label for="urlInput"><h3>Paste the url: </h3></label>
                                     <input type="text" class="form-control" id="urlInput" name="urlInput"
@@ -97,6 +97,7 @@
                                            placeholder="Enter Your Email">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
+
                             </form>
 
 
