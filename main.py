@@ -8,14 +8,15 @@ app.secret_key = '123890'  # Set a secret key for session
 Url = Price = Email = current_price = product_name = None
 
 bestbuy_scraper = BestBuyScraper()
-bestbuy_price1, product_name1 = bestbuy_scraper.get_bestbuy_price("https://www.bestbuy.com/site/alienware-aw3423dwf-34-quantum-dot-oled-curved-ultrawide-gaming-monitor-165hz-amd-freesync-premium-pro-vesa-hdmiusb-dark-side-of-the-moon/6536990.p?skuId=6536990")
-bestbuy_price2, product_name2 = bestbuy_scraper.get_bestbuy_price("https://www.bestbuy.com/site/bose-ultra-open-ear-true-wireless-open-earbuds-black/6568949.p?skuId=6568949")
+# bestbuy_price1, product_name1 = bestbuy_scraper.get_bestbuy_price("https://www.bestbuy.com/site/alienware-aw3423dwf-34-quantum-dot-oled-curved-ultrawide-gaming-monitor-165hz-amd-freesync-premium-pro-vesa-hdmiusb-dark-side-of-the-moon/6536990.p?skuId=6536990")
+# bestbuy_price2, product_name2 = bestbuy_scraper.get_bestbuy_price("https://www.bestbuy.com/site/bose-ultra-open-ear-true-wireless-open-earbuds-black/6568949.p?skuId=6568949")
 
 
 @app.route("/")
 def select_url():
-    session['bestbuy_price1'] = bestbuy_price1
-    return render_template("index.html", price1=bestbuy_price1, price2=bestbuy_price2)
+    # session['bestbuy_price1'] = bestbuy_price1
+    # return render_template("index.html", price1=bestbuy_price1, price2=bestbuy_price2)
+    return render_template("index.html")
 
 
 @app.route('/left-sidebar.html', methods=['GET', 'POST'])
