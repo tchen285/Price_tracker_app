@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Price Tracker by Tao Chen</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="static/assets/css/main.css"/>
+</head>
+<body class="is-preload right-sidebar">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header-wrapper">
+        <header id="header" class="container">
+
+            <!-- Logo -->
+            <div id="logo">
+                <h1><a href="index.html">Price Tracker</a></h1>
+                <span>by TAO CHEN</span>
+            </div>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="{{ url_for('select_url') }}">Welcome</a></li>
+                    <li>
+                        <a href="#">Dropdown</a>
+                        <ul>
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Magna phasellus</a></li>
+                            <li>
+                                <a href="#">Phasellus consequat</a>
+                                <ul>
+                                    <li><a href="#">Lorem ipsum dolor</a></li>
+                                    <li><a href="#">Phasellus consequat</a></li>
+                                    <li><a href="#">Magna phasellus</a></li>
+                                    <li><a href="#">Etiam dolore nisl</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Veroeros feugiat</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="left-sidebar.html">Track Best Buy</a></li>
+                    <li><a href="right-sidebar.html">Track Steam</a></li>
+                    <li class="current"><a href="amazon.html">Track Amazon</a></li>
+                    <li><a href="no-sidebar.html">No Sidebar</a></li>
+                </ul>
+            </nav>
+
+        </header>
+    </div>
+
+    <!-- Main -->
+    <div id="main-wrapper">
+        <div class="container">
+            <div class="row gtr-200">
+                <div class="col-8 col-12-medium">
+                    <div id="content">
+
+                        <!-- Content -->
+                        <article>
+
+                            <h2>Track Amazon Price</h2>
+                            <!-- Add input field for pasting the URL -->
+                            <!-- index.html -->
+                            <form method="post" action="{{ url_for('amazon') }}">
+                                <div class="form-group" style="margin-bottom: 50px; margin-top: 50px">
+                                    <label for="urlInput"><h3>Paste the url: </h3></label>
+                                    <input type="text" class="form-control" id="urlInput" name="urlInput"
+                                           placeholder="Enter URL">
+                                </div>
+                                <div class="form-group" style="margin-bottom: 50px;">
+                                    <label for="targetPrice"><h3>Your target price: </h3></label>
+                                    <input type="text" class="form-control" id="targetPrice" name="targetPrice"
+                                           placeholder="Enter Target Price">
+                                </div>
+                                <div class="form-group" style="margin-bottom: 50px;">
+                                    <label for="email"><h3>Enter your email: </h3></label>
+                                    <input type="text" class="form-control" id="email" name="email"
+                                           placeholder="Enter Your Email">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+
+                            </form>
+
+                        </article>
+
+                    </div>
+                </div>
+                <div class="col-4 col-12-medium">
+                    <div id="sidebar">
+
+                        <!-- Sidebar -->
+                        <section>
+                            <h3>Motivation</h3>
+                            <p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus.
+                                Praesent semper mod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
+                                Aliquam luctus et mattis lectus sit amet pulvinar. Nam turpis nisi
+                                consequat etiam.</p>
+                            <footer>
+                                <a href="#" class="button icon solid fa-info-circle">Find out more</a>
+                            </footer>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-wrapper">
+        <footer id="footer" class="container">
+            <div class="row">
+                <div class="col-3 col-6-medium col-12-small">
+
+                    <!-- Links -->
+                    <section class="widget links">
+                        <h3>Random Stuff</h3>
+                        <ul class="style2">
+                            <li><a href="#">Etiam feugiat condimentum</a></li>
+                            <li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+                            <li><a href="#">Sed porttitor cras in erat nec</a></li>
+                            <li><a href="#">Felis varius pellentesque potenti</a></li>
+                            <li><a href="#">Nullam scelerisque blandit leo</a></li>
+                        </ul>
+                    </section>
+
+                </div>
+                <div class="col-3 col-6-medium col-12-small">
+
+                    <!-- Links -->
+                    <section class="widget links">
+                        <h3>Random Stuff</h3>
+                        <ul class="style2">
+                            <li><a href="#">Etiam feugiat condimentum</a></li>
+                            <li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+                            <li><a href="#">Sed porttitor cras in erat nec</a></li>
+                            <li><a href="#">Felis varius pellentesque potenti</a></li>
+                            <li><a href="#">Nullam scelerisque blandit leo</a></li>
+                        </ul>
+                    </section>
+
+                </div>
+                <div class="col-3 col-6-medium col-12-small">
+
+                    <!-- Links -->
+                    <section class="widget links">
+                        <h3>Random Stuff</h3>
+                        <ul class="style2">
+                            <li><a href="#">Etiam feugiat condimentum</a></li>
+                            <li><a href="#">Aliquam imperdiet suscipit odio</a></li>
+                            <li><a href="#">Sed porttitor cras in erat nec</a></li>
+                            <li><a href="#">Felis varius pellentesque potenti</a></li>
+                            <li><a href="#">Nullam scelerisque blandit leo</a></li>
+                        </ul>
+                    </section>
+
+                </div>
+                <div class="col-3 col-6-medium col-12-small">
+
+                    <!-- Contact -->
+                    <section class="widget contact">
+                        <h3>Contact Us</h3>
+                        <ul>
+                            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a>
+                            </li>
+                            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a>
+                            </li>
+                            <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                            <li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a>
+                            </li>
+                        </ul>
+                        <p>1234 Fictional Road<br/>
+                            Nashville, TN 00000<br/>
+                            (800) 555-0000</p>
+                    </section>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div id="copyright">
+                        <ul class="menu">
+                            <li>&copy; Untitled. All rights reserved</li>
+                            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+
+<script src="static/assets/js/jquery.min.js"></script>
+<script src="static/assets/js/jquery.dropotron.min.js"></script>
+<script src="static/assets/js/browser.min.js"></script>
+<script src="static/assets/js/breakpoints.min.js"></script>
+<script src="static/assets/js/util.js"></script>
+<script src="static/assets/js/main.js"></script>
+
+</body>
+</html>
