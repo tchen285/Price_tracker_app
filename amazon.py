@@ -26,9 +26,9 @@ class AmazonScraper:
             product_name_str = product_name_element.text
 
             # Convert the price string to float
-            price_float = float(price_str.replace('$', ''))
+            # price_float = float(price_str.replace('$', ''))
 
-            return price_float, product_name_str
+            return price_str, product_name_str
 
         finally:
             # Close the browser
