@@ -7,6 +7,9 @@ import csv
 app = Flask(__name__)
 app.secret_key = '123890'  # Set a secret key for session
 
+print("Hello 1")
+print("Hello 2")
+
 Url = Price = Email = current_price = product_name = None
 
 bestbuy_scraper = BestBuyScraper()
@@ -108,3 +111,4 @@ def amazon():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
