@@ -1,0 +1,12 @@
+Hi there!
+The price of
+[product_name]
+has reached your target price [target_price]!
+Click the link below to place your order:
+
+[url]
+
+Thank you for using Price Tracker!
+
+Best,
+Price Tracker by TAO CHEN
