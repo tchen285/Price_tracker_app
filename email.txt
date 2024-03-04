@@ -1,12 +1,19 @@
 Hi there!
-The price of
-[product_name]
-has reached your target price [target_price]!
+
+The price of:
+
+[PRODUCT_NAME]
+
+has reached your target price $[TARGET_PRICE]!
+
+The current price is $[CURRENT_PRICE].
+
 Click the link below to place your order:
 
-[url]
+[URL]
 
 Thank you for using Price Tracker!
+
 
 Best,
 Price Tracker by TAO CHEN
