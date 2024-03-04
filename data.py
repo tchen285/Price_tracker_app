@@ -12,14 +12,25 @@ data.columns = data.columns.str.strip()
 
 # Iterate over rows and print email values
 for row in data.itertuples(index=False):
+    url_value = row.url
+    target_price_value = row.target_price
     email_value = row.email
-    print(f"Email: {email_value}")
 
-with smtplib.SMTP("smtp.gmail.com") as connection:
-    connection.starttls()
-    connection.login(MY_EMAIL, MY_PASSWORD)
-    connection.sendmail(
-        from_addr=MY_EMAIL,
-        to_addrs="tchen285@ucr.edu",
-        msg="Subject:From Price Tracker: It's time to place your order!\n\nHi There"
-    )
+    file_path = "email.txt"
+    with open(file_path) as letter_file:
+        contents = letter_file.read()
+        contents = contents.replace("[TARGET_PRICE]", str(target_price_value))
+        contents = contents.replace("[URL]", url_value)
+
+    # print(f"Url: {url_value}")
+    # print(f"target price: {target_price_value}")
+    # print(f"Email: {email_value}")
+
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+        connection.starttls()
+        connection.login(MY_EMAIL, MY_PASSWORD)
+        connection.sendmail(
+            from_addr=MY_EMAIL,
+            to_addrs=email_value,
+            msg=f"Subject:From Price Tracker: It's time to place your order!\n\n{contents}"
+        )
