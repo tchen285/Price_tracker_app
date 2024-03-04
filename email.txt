@@ -1,4 +1,4 @@
-Hi there!
+Hello!
 
 The price of:
 
@@ -8,7 +8,7 @@ has reached your target price $[TARGET_PRICE]!
 
 The current price is $[CURRENT_PRICE].
 
-Click the link below to place your order:
+Go ahead click the link below to place your order:
 
 [URL]
 
