@@ -20,6 +20,18 @@ def send_email(url, target_price, email, current_price, product_name):
         contents = letter_file.read()
         contents = contents.replace("[TARGET_PRICE]", str(target_price_value))
         contents = contents.replace("[URL]", url_value)
+        contents = contents.replace("[PRODUCT_NAME]", product_name)
+        contents = contents.replace("[CURRENT_PRICE]", str(current_price))
+
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+        connection.starttls()
+        connection.login(MY_EMAIL, MY_PASSWORD)
+        connection.sendmail(
+            from_addr=MY_EMAIL,
+            to_addrs=email_value,
+            msg=f"Subject:From Price Tracker: It's time to place your order!\n\n{contents}"
+        )
+
 
 # Iterate over rows and print email values
 for row in data.itertuples(index=False):
@@ -32,33 +44,19 @@ for row in data.itertuples(index=False):
         bestbuy_scraper = BestBuyScraper()
         price_bestbuy, product_name_bestbuy = bestbuy_scraper.get_bestbuy_price(url_value)
 
-        # print(f"Price: {price_bestbuy}")
-        # print(f"Product Name: {product_name_bestbuy}")
+        if price_bestbuy <= target_price_value:
+            send_email(url_value, target_price_value, email_value, price_bestbuy, product_name_bestbuy)
 
     if "steampowered" in url_value:
         steam_scraper = SteamScraper()
         price_steam, product_name_steam = steam_scraper.get_steam_price(url_value)
-        print(f"Steam Price: {price_steam}")
-        print(f"Steam Product Name: {product_name_steam}")
+
+        if price_steam <= target_price_value:
+            send_email(url_value, target_price_value, email_value, price_steam, product_name_steam)
 
     if "amazon" in url_value:
         amazon_scraper = AmazonScraper()
         price_amazon, product_name_amazon = amazon_scraper.get_amazon_price(url_value)
-        print(f"Amazon Price: {price_amazon}")
-        print(f"Amazon Product Name: {product_name_amazon}")
 
-    # file_path = "email.txt"
-    # with open(file_path) as letter_file:
-    #     contents = letter_file.read()
-    #     contents = contents.replace("[TARGET_PRICE]", str(target_price_value))
-    #     contents = contents.replace("[URL]", url_value)
-    #
-    #
-    # with smtplib.SMTP("smtp.gmail.com") as connection:
-    #     connection.starttls()
-    #     connection.login(MY_EMAIL, MY_PASSWORD)
-    #     connection.sendmail(
-    #         from_addr=MY_EMAIL,
-    #         to_addrs=email_value,
-    #         msg=f"Subject:From Price Tracker: It's time to place your order!\n\n{contents}"
-    #     )
+        if float(price_amazon) <= target_price_value:
+            send_email(url_value, target_price_value, email_value, price_amazon, product_name_amazon)
