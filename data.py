@@ -15,6 +15,7 @@ data.columns = data.columns.str.strip()
 
 file_path = "email.txt"
 
+
 def send_email(url, target_price, email, current_price, product_name):
     with open(file_path) as letter_file:
         contents = letter_file.read()
