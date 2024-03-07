@@ -1,40 +1,32 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
+import requests
+from bs4 import BeautifulSoup
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
 }
 
+
 class SteamScraper:
     def get_steam_price(self, product_url):
-        # Keep Chrome browser open after the program finishes
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_experimental_option("detach", True)
+        try:
+            response = requests.get(product_url, headers=headers, timeout=10)
+            response.raise_for_status()  # Check for HTTP errors
+            content = response.content
+            # print(content)
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
 
-        driver = webdriver.Chrome(options=chrome_options)
+        soup = BeautifulSoup(content, 'lxml')
 
-        # 3. Visit the website
-        # driver.get("https://store.steampowered.com/app/1971650/OCTOPATH_TRAVELER_II/")
-        driver.get(product_url)
+        product_name = soup.select_one('.apphub_AppName')
 
-        # 4. Find the price element using its class name
-        price_element = driver.find_element(By.CLASS_NAME, "game_purchase_price.price")
-        product_name = driver.find_element(By.CLASS_NAME, "apphub_AppName")
-        product_name_str = product_name.text
-        # print(product_name_str)
-        # 5. Find the inner span with the actual price
-        # price_span = price_element.find_element(By.CSS_SELECTOR, 'span[aria-hidden="true"]')
+        price_element = soup.select_one('.game_purchase_price')
 
-        # 6. Get the text content of the span
-        price_str = price_element.text
 
-        # Remove commas from the price string
-        price_str = price_str.replace(',', '')
+        product_name_text = product_name.stripped_strings.__next__()
 
-        price_float = float(price_str.replace('$', ''))
-        # print(price_float)
+        product_price_text = price_element.stripped_strings.__next__()
+        price = product_price_text.replace(',', '')
+        current_price = float(price.replace('$', ''))
 
-        # 8. Close the browser
-        driver.quit()
-
-        return price_float, product_name_str
+        return product_name_text, current_price

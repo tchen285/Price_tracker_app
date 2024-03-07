@@ -1,7 +1,7 @@
-from bestbuy import BestBuyScraper
-from steam import SteamScraper
-from amazon import AmazonScraper
-from flask import Flask, render_template, session, request, redirect, url_for
+from selenium.bestbuy import BestBuyScraper
+from selenium.steam import SteamScraper
+from selenium.amazon import AmazonScraper
+from flask import Flask, render_template, request, redirect, url_for
 import csv
 
 app = Flask(__name__)
