@@ -44,20 +44,21 @@ for row in data.itertuples(index=False):
     if "bestbuy" in url_value:
         bestbuy_scraper = BestBuyScraper()
         price_bestbuy, product_name_bestbuy = bestbuy_scraper.get_bestbuy_price(url_value)
+        print(product_name_bestbuy)
 
         if price_bestbuy <= target_price_value:
             send_email(url_value, target_price_value, email_value, price_bestbuy, product_name_bestbuy)
 
-    if "steampowered" in url_value:
-        steam_scraper = SteamScraper()
-        price_steam, product_name_steam = steam_scraper.get_steam_price(url_value)
-
-        if price_steam <= target_price_value:
-            send_email(url_value, target_price_value, email_value, price_steam, product_name_steam)
-
-    if "amazon" in url_value:
-        amazon_scraper = AmazonScraper()
-        price_amazon, product_name_amazon = amazon_scraper.get_amazon_price(url_value)
-
-        if float(price_amazon) <= target_price_value:
-            send_email(url_value, target_price_value, email_value, price_amazon, product_name_amazon)
+    # if "steampowered" in url_value:
+    #     steam_scraper = SteamScraper()
+    #     price_steam, product_name_steam = steam_scraper.get_steam_price(url_value)
+    #
+    #     if price_steam <= target_price_value:
+    #         send_email(url_value, target_price_value, email_value, price_steam, product_name_steam)
+    #
+    # if "amazon" in url_value:
+    #     amazon_scraper = AmazonScraper()
+    #     price_amazon, product_name_amazon = amazon_scraper.get_amazon_price(url_value)
+    #
+    #     if float(price_amazon) <= target_price_value:
+    #         send_email(url_value, target_price_value, email_value, price_amazon, product_name_amazon)
