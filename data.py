@@ -1,8 +1,6 @@
 import pandas as pd
 import smtplib
-from bestbuy import BestBuyScraper
-from steam import SteamScraper
-from amazon import AmazonScraper
+from selenium.bestbuy import BestBuyScraper
 
 MY_EMAIL = "tony.chent6@gmail.com"
 MY_PASSWORD = "ijfd bkrh ekji psqe"
